@@ -1,0 +1,94 @@
+@import 'functions';
+
+/* NOTE: Alle ':root' CSS properties sollten in KoliBri zu ':host' kopiert werden und umgekehrt. Damit vereinheitlicht man alle Variablen auf beiden Seiten und kann diese dann individuell nutzen.*/ /* colors */
+@layer kol-theme-global {
+	:root,
+	:host {
+		--color-primary: #cc071e;
+		--color-hover: #a0081a;
+		--color-black: #4a4a4a;
+		--color-white: #eeeeee;
+		--color-gray-light: #f6f6f6;
+		--color-gray: #e6e6e6;
+		--color-gray-dark: #8c8c8c;
+		--border-radius: 2px;
+	}
+
+	:root,
+	:host {
+		--font-family: 'UnitRoundedOT', 'Adjusted Arial Fallback for UnitRoundedOT', 'Helvetica Neue',
+		Helvetica, Arial, sans-serif;
+		--font-family-serif: var(--font-family);
+	}
+
+	:host {
+		color: var(--color-black);
+		font-family: var(--font-family);
+	}
+
+	:host * {
+		box-sizing: border-box;
+	}
+
+	a,
+	button,
+	input,
+	option,
+	select,
+	textarea {
+		hyphens: auto;
+		letter-spacing: inherit;
+	}
+
+	summary {
+		hyphens: auto;
+		letter-spacing: inherit;
+	}
+
+	*[tabindex]:focus,
+	kol-input:not(.checkbox, .radio) .input:focus-within,
+	summary:focus {
+		outline: 2px solid var(--color-blue);
+		outline-offset: 2px;
+		transition: outline-offset 0.2s linear;
+	}
+
+	@keyframes spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	kol-icon {
+		color: inherit;
+	}
+
+	kol-tooltip-wc {
+		font-size: rem(18);
+
+		.tooltip-area {
+			background-color: var(--color-white);
+			border-radius: var(--border-radius);
+		}
+		.tooltip-arrow {
+			background-color: var(--color-black);
+		}
+		.tooltip-content {
+			padding: rem(8);
+			border: 1px solid var(--color-black);
+		}
+	}
+
+	kol-span-wc,
+	kol-span-wc > span {
+		gap: 0.5em;
+	}
+
+	kol-span-wc,
+	kol-span-wc > span {
+		gap: 0.3em;
+	}
+}

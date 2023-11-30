@@ -1,0 +1,58 @@
+@import '../functions';
+
+@mixin button($element-selector) {
+	:host {
+		display: inline-block;
+	}
+
+	#{$element-selector} {
+		color: inherit;
+		outline: none;
+
+		&::before {
+			/* Render zero-width character as first element to set the baseline correctly. */
+			content: '\200B';
+		}
+	}
+
+	#{$element-selector}>kol-span-wc {
+		border: 1px solid;
+		border-radius: var(--border-radius);
+		font-size: rem(18);
+		font-weight: 500;
+		min-height: var(--a11y-min-size);
+		min-width: var(--a11y-min-size);
+		padding: rem(8) rem(14);
+		text-align: center;
+	}
+
+	.primary #{$element-selector}>kol-span-wc {
+		background-color: var(--color-primary);
+		border-color: var(--color-primary);
+		color: var(--color-white);
+	}
+
+	.primary #{$element-selector}:hover>kol-span-wc {
+		background-color: var(--color-hover);
+		border-color: var(--color-hover);
+	}
+
+	.secondary #{$element-selector}>kol-span-wc {
+		background-color: var(--color-gray-light);
+		border-color: var(--color-gray-dark);
+		color: var(--color-black);
+	}
+
+	.secondary #{$element-selector}:hover>kol-span-wc {
+		background-color: var(--color-gray);
+		border-color: var(--color-black);
+	}
+
+	.primary #{$element-selector}:focus>kol-span-wc,
+	.secondary #{$element-selector}:focus>kol-span-wc {
+		background-color: var(--color-hover);
+		border-color: var(--color-hover);
+		color: var(--color-white);
+		outline: var(--color-black) solid 2px;
+	}
+}
